@@ -1,0 +1,150 @@
+body, body * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle, #2d1a2e, #100f60, #2b163e);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+:root {
+    --background-color: #16213e; 
+    --shadow-color: rgba(209, 18, 152, 0.5);
+    --text-color: #ff00dd; 
+    --highlight-color: #f72585; 
+}
+
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--background-color);
+    box-shadow: 0 0 20px var(--shadow-color), 0 0 40px var(--shadow-color);
+    width: 500px;
+    height: 180px;
+    border-radius: 30px;
+    overflow: hidden;
+    animation: glow-pulse 2s infinite alternate;
+}
+
+
+#textDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 5rem;
+    z-index: 10; 
+    text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--text-color);
+    animation: flicker 3s infinite alternate;
+}
+
+
+.addedTime {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    display: none;
+    z-index: 5;
+    font-weight: 400;
+    font-size: 3.25rem;
+    color: var(--highlight-color);
+    text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color);
+    transition: top 1s ease-out, opacity 0.5s ease-out;
+    animation: time-burst 1.5s ease-out;
+}
+.emoteImage {
+    position: absolute;
+    transition: top 1s ease-out, opacity 0.5s ease-out;    
+    z-index: 1000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: time-burst 1.5s ease-out;
+}
+
+canvas {
+    width: 500px;
+    height: 180px;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, #8c00ff 10%, #7d1986 80%);
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+
+
+#addTimeBtn {
+    position: relative;
+    z-index: 1000;
+    background-color: red; 
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: block;
+}
+
+#addTimeBtn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #00d9ff;
+}
+
+
+@keyframes glow-pulse {
+    0% {
+        box-shadow: 0 0 10px var(--shadow-color), 0 0 20px var(--shadow-color);
+    }
+    100% {
+        box-shadow: 0 0 30px var(--shadow-color), 0 0 50px var(--shadow-color);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+        text-shadow: 0 0 5px var(--text-color), 0 0 10px var(--text-color);
+    }
+    50% {
+        opacity: 0.9;
+        text-shadow: 0 0 15px var(--text-color), 0 0 25px var(--text-color);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--text-color), 0 0 20px var(--text-color);
+    }
+}
+
+@keyframes time-burst {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+
